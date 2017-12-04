@@ -1,0 +1,7 @@
+*
+!.gitignore
+!Vagrantfile
+!startup.sh
+!README.md
+!.git
+!.vagrant

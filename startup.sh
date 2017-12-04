@@ -8,6 +8,7 @@ apt-get install apache2 -y
 apt-get install php -y
 apt-get install libapache2-mod-php -y
 service apache2 restart
+apt-get install php-xml -y
 apt-get install mysql-server-5.6 -y
 apt-get install php-gd -y
 apt-get install php-curl -y

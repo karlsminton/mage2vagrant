@@ -13,6 +13,9 @@ apt-get install mysql-server-5.6 -y
 apt-get install php-gd -y
 apt-get install php-curl -y
 apt-get install php-mcrypt -y
+apt-get install php-intl -y
+apt-get install php-mbstring -y
+apt-get install php-zip -y
 sudo ln -fs /vagrant/public_html/ /var/www/site
 
 FILE="/etc/apache2/sites-available/default.conf"

@@ -17,6 +17,7 @@ apt-get install php-mcrypt -y
 apt-get install php-intl -y
 apt-get install php-mbstring -y
 apt-get install php-zip -y
+apt-get install php-mysql -y
 sudo ln -fs /vagrant/public_html/ /var/www/site
 
 FILE="/etc/apache2/sites-available/default.conf"

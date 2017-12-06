@@ -4,6 +4,7 @@ export DEBIAN_FRONTEND=noninteractive
 
 apt-get update -y
 apt-get upgrade -y
+apt-get install mariadb-client-10.0 mariadb-server-10.0 -y
 apt-get install apache2 -y
 apt-get install php -y
 apt-get install libapache2-mod-php -y

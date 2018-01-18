@@ -4,10 +4,10 @@ export DEBIAN_FRONTEND=noninteractive
 
 apt-get update -y
 apt-get upgrade -y
-apt-get install apache2 -y
+apt-get install nginx -y
 apt-get install php -y
-apt-get install libapache2-mod-php -y
-service apache2 restart
+
+/etc/init.d/nginx start
 apt-get install php-xml -y
 apt-get install mysql-server-5.6 -y
 apt-get install php-gd -y
@@ -18,22 +18,29 @@ apt-get install php-mbstring -y
 apt-get install php-zip -y
 sudo ln -fs /vagrant/public_html/ /var/www/site
 
-FILE="/etc/apache2/sites-available/default.conf"
+FILE="/etc/nginx/sites-available/nginx.local"
 
 cat << EOF | sudo tee -a $FILE
-<Directory "/var/www">
-        AllowOverride All
-</Directory>
-<VirtualHost *:80>
-        DocumentRoot /var/www/site
-        ServerName mage2.dev
-</VirtualHost>
+server {
+    listen 80;
+    server_name nginx.local;
+
+    access_log /var/www/nginx.local/logs/access.log;
+    error_log /var/www/nginx.local/logs/error.log;
+
+    location / {
+        root /var/www/site/;
+        index.html;
+    }
+}
 EOF
+
 phpenmod curl
 phpenmod mcrypt
-a2enmod rewrite
-a2ensite default.conf
-service apache2 restart
+ln -s /etc/nginx/sites-available/nginx.local /etc/nginx/sites-enabled/nginx.local
+
+/etc/init.d/nginx restart
+
 mkdir /vagrant/public_html
 mkdir /var/www/site
 

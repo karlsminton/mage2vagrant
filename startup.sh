@@ -33,7 +33,7 @@ server {
 
     location / {
         root /var/www/site/;
-        index.html;
+        index index.html;
     }
 }
 EOF

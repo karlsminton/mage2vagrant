@@ -5,7 +5,7 @@ export DEBIAN_FRONTEND=noninteractive
 apt-get update -y
 apt-get upgrade -y
 apt-get install nginx -y
-apt-get install php -y
+apt-get install php-fpm -y
 
 /etc/init.d/nginx start
 apt-get install php-xml -y
@@ -116,9 +116,10 @@ EOF
 
 phpenmod curl
 phpenmod mcrypt
-ln -s /etc/nginx/sites-available/nginx.local /etc/nginx/sites-enabled/nginx.local
+#ln -s /etc/nginx/sites-available/nginx.local /etc/nginx/sites-enabled/nginx.local
 
 /etc/init.d/nginx restart
+systemctl restart php7.0-fpm
 
 mkdir /vagrant/public_html
 mkdir /var/www/site

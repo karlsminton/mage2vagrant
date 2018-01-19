@@ -65,11 +65,7 @@ server {
 	root /var/www/site;
 
 	# Add index.php to the list if you are using PHP
-	index index.php index.html index.htm index.nginx-debian.html;
-
-  if ($request_uri ~* "^(.*/)index\.php$") {
-    return 301 $1;
-  }
+	index index.php;
 
 	server_name nginx.local;
 

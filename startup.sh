@@ -18,6 +18,9 @@ apt-get install php-mbstring -y
 apt-get install php-zip -y
 sudo ln -fs /vagrant/public_html/ /var/www/site
 
+touch /var/nginx_access.log
+touch /var/nginx_error.log
+
 FILE="/etc/nginx/sites-available/nginx.local"
 
 cat << EOF | sudo tee -a $FILE
@@ -25,8 +28,8 @@ server {
     listen 80;
     server_name nginx.local;
 
-    access_log /var/www/nginx.local/logs/access.log;
-    error_log /var/www/nginx.local/logs/error.log;
+    access_log /var/nginx_access.log;
+    error_log /var/nginx_error.log;
 
     location / {
         root /var/www/site/;

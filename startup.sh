@@ -71,8 +71,8 @@ server {
       add_header X-Frame-Options "SAMEORIGIN";
       expires +1y;
 
-      if (!-f $request_filename) {
-        rewrite ^/static/(version\d*/)?(.*)$ /static.php?resource=$2 last;
+      if (!-f \$request_filename) {
+        rewrite ^/static/(version\d*/)?(.*)$ /static.php?resource=\$2 last;
       }
     }
 
@@ -81,13 +81,13 @@ server {
       add_header X-Frame-Options "SAMEORIGIN";
       expires off;
 
-      if (!-f $request_filename) {
-         rewrite ^/static/(version\d*/)?(.*)$ /static.php?resource=$2 last;
+      if (!-f \$request_filename) {
+         rewrite ^/static/(version\d*/)?(.*)$ /static.php?resource=\$2 last;
       }
     }
 
-    if (!-f $request_filename) {
-      rewrite ^/static/(version\d*/)?(.*)$ /static.php?resource=$2 last;
+    if (!-f \$request_filename) {
+      rewrite ^/static/(version\d*/)?(.*)$ /static.php?resource=\$2 last;
     }
 
     add_header X-Frame-Options "SAMEORIGIN";

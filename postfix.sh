@@ -28,7 +28,7 @@ smtp_use_tls = yes" | sudo tee -a /etc/postfix/main.cf
 
 # Add Gmail username:password.
 # This should be setup using an application-specific password in the Google
-echo "[smtp.gmail.com]:587  username@gmail.com:password" | sudo tee -a /etc/postfix/sasl_passwd
+echo "[smtp.gmail.com]:587  modgento@gmail.com:%C=tR2g#$Hn*4Ub_" | sudo tee -a /etc/postfix/sasl_passwd
 
 # Add password to postfix settings
 sudo chmod 400 /etc/postfix/sasl_passwd

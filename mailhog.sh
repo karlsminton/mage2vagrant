@@ -19,5 +19,5 @@ pre-start script
 end script
 EOL
 
-# Start it now in the background
-sudo service mailhog start
+# Start it now in the background - doesn't work
+# sudo service mailhog start

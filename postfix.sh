@@ -18,8 +18,9 @@ sudo apt-get install -y postfix mailutils libsasl2-2 ca-certificates libsasl2-mo
 sudo sed -i.bak '/relayhost/,/^/d' /etc/postfix/main.cf
 
 # Enter new information
+# relayhost =[smtp.gmail.com]:587
 echo "
-relayhost = [smtp.gmail.com]:587
+relayhost = [localhost]:1025
 smtp_sasl_auth_enable = yes
 smtp_sasl_password_maps = hash:/etc/postfix/sasl_passwd
 smtp_sasl_security_options = noanonymous

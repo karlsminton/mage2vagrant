@@ -29,7 +29,7 @@ cat << EOF | sudo tee -a $FILE
 </Directory>
 <VirtualHost *:80>
         DocumentRoot /var/www/site
-        ServerName mage2.dev
+        ServerName mage2.local
 </VirtualHost>
 EOF
 phpenmod curl

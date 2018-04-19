@@ -2,6 +2,8 @@
 !.gitignore
 !Vagrantfile
 !startup.sh
+!postfix.sh
+!mailhog.sh
 !README.md
 !.git
 !.vagrant

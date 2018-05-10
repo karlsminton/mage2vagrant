@@ -4,10 +4,19 @@ export DEBIAN_FRONTEND=noninteractive
 
 apt-get update -y
 apt-get upgrade -y
+
 apt-get install nginx -y
 apt-get install php-fpm -y
 
 /etc/init.d/nginx start
+
+apt-get install mysql-server-5.7 mysql-client-5.7 -y
+apt-get install apache2 -y
+apt-get install php -y
+apt-get install libapache2-mod-php -y
+#service apache2 restart
+service apache2 stop
+
 apt-get install php-xml -y
 apt-get install mysql-server-5.6 -y
 apt-get install php-gd -y
@@ -16,6 +25,8 @@ apt-get install php-mcrypt -y
 apt-get install php-intl -y
 apt-get install php-mbstring -y
 apt-get install php-zip -y
+apt-get install php-mysql -y
+apt-get install php-soap -y
 sudo ln -fs /vagrant/public_html/ /var/www/site
 
 touch /var/nginx_access.log
@@ -93,7 +104,6 @@ server {
     add_header X-Frame-Options "SAMEORIGIN";
   }
 }
-
 EOF
 
 phpenmod curl

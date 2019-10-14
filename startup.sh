@@ -5,28 +5,27 @@ export DEBIAN_FRONTEND=noninteractive
 apt-get update -y
 apt-get upgrade -y
 
+apt-get install software-properties-common python-software-properties -y
+add-apt-repository -y ppa:ondrej/php
+apt-get update -y
+
 apt-get install nginx -y
-apt-get install php-fpm -y
+apt-get install php7.2-fpm -y
 
 /etc/init.d/nginx start
 
 apt-get install mysql-server-5.7 mysql-client-5.7 -y
-apt-get install apache2 -y
-apt-get install php -y
-apt-get install libapache2-mod-php -y
-#service apache2 restart
-service apache2 stop
-
-apt-get install php-xml -y
-apt-get install mysql-server-5.6 -y
-apt-get install php-gd -y
-apt-get install php-curl -y
-apt-get install php-mcrypt -y
-apt-get install php-intl -y
-apt-get install php-mbstring -y
-apt-get install php-zip -y
-apt-get install php-mysql -y
-apt-get install php-soap -y
+apt-get install php7.2 -y
+apt-get install php7.2-common -y
+apt-get install php7.2-xml -y
+apt-get install php7.2-gd -y
+apt-get install php7.2-curl -y
+apt-get install php7.2-mcrypt -y
+apt-get install php7.2-intl -y
+apt-get install php7.2-mbstring -y
+apt-get install php7.2-zip -y
+apt-get install php7.2-mysql -y
+apt-get install php7.2-soap -y
 sudo ln -fs /vagrant/public_html/ /var/www/site
 
 touch /var/nginx_access.log
@@ -60,7 +59,7 @@ server {
 	location ~ \.php$ {
 		include snippets/fastcgi-php.conf;
 
-		fastcgi_pass unix:/run/php/php7.0-fpm.sock;
+		fastcgi_pass unix:/run/php/php7.2-fpm.sock;
 	}
 
 	# deny access to .htaccess files, if Apache's document root

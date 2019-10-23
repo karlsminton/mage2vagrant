@@ -1,7 +1,7 @@
 # mage2vagrant
 
 A vagrant box for magento2 with multiple branches to support newer versions of php. 
-Currently supports magento 2.1.x
+Currently supports magento 2.2/3.x
 
 # Installation
 
